@@ -1,6 +1,11 @@
 package com.teamwifi.kkatwifi;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextView;
     private KKATWiFiHelper mWifiHelper;
     private EditText mDistanceEditText;
+    private BroadcastReceiver mRSSIBroadcastReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
         mTextView = (TextView) findViewById(R.id.test);
         mWifiHelper = new KKATWiFiHelper(this);
         mDistanceEditText = (EditText) findViewById(R.id.distance);
+        mRSSIBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                mTextView.setText(mWifiHelper.getEfficiency(-34, 4) + "\nChannel: " + mWifiHelper.getChannel());
+                Log.d("Router channels", mWifiHelper.getNearbyRouterChannels().toString());
+            }
+        };
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -44,6 +57,18 @@ public class MainActivity extends AppCompatActivity {
                         "\n" + String.valueOf(mWifiHelper.getSignalStrength()));
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(mRSSIBroadcastReceiver, new IntentFilter(WifiManager.RSSI_CHANGED_ACTION));
+    }
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(mRSSIBroadcastReceiver);
+        super.onPause();
     }
 
     @Override
@@ -62,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
 

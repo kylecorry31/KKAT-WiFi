@@ -5,6 +5,7 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +17,27 @@ public class KKATWiFiHelper {
 
     public KKATWiFiHelper(Context context) {
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+    }
+
+    public int getChannel() {
+        int freq = getFrequency();
+        if (freq == 2484)
+            return 14;
+
+        if (freq < 2484)
+            return (freq - 2407) / 5;
+
+        return freq / 5 - 1000;
+    }
+
+    public int getChannel(int freq) {
+        if (freq == 2484)
+            return 14;
+
+        if (freq < 2484)
+            return (freq - 2407) / 5;
+
+        return freq / 5 - 1000;
     }
 
     /**
@@ -32,11 +54,11 @@ public class KKATWiFiHelper {
      *
      * @return The frequency of the connection in GHz.
      */
-    public double getFrequency() {
+    public int getFrequency() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             return mWifiManager.getConnectionInfo().getFrequency();
         } else {
-            return 2.4;
+            return 2407;
         }
     }
 
@@ -90,6 +112,14 @@ public class KKATWiFiHelper {
 
     public List<ScanResult> getScanResults() {
         return mWifiManager.getScanResults();
+    }
+
+    public List<Integer> getNearbyRouterChannels() {
+        List<Integer> channels = new ArrayList<>();
+        List<ScanResult> scanResults = getScanResults();
+        for (ScanResult scanResult : scanResults)
+            channels.add(getChannel(scanResult.frequency));
+        return channels;
     }
 
 }
