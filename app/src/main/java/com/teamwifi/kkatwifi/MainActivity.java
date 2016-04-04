@@ -1,15 +1,27 @@
 package com.teamwifi.kkatwifi;
 
+import android.net.wifi.ScanResult;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.teamwifi.kkatwifi.util.KKATWiFiHelper;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView mTextView;
+    private KKATWiFiHelper mWifiHelper;
+    private EditText mDistanceEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +30,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mTextView = (TextView) findViewById(R.id.test);
+        mWifiHelper = new KKATWiFiHelper(this);
+        mDistanceEditText = (EditText) findViewById(R.id.distance);
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                mTextView.setText(String.valueOf(mWifiHelper.getEfficiency(-34, Double.valueOf(mDistanceEditText.getText().toString()))) +
+                        "\n" + String.valueOf(mWifiHelper.getSignalStrength()));
             }
         });
     }

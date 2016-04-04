@@ -1,8 +1,11 @@
 package com.teamwifi.kkatwifi.util;
 
 import android.content.Context;
+import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+
+import java.util.List;
 
 /**
  * Created by Kylec on 4/2/2016.
@@ -83,6 +86,10 @@ public class KKATWiFiHelper {
     public boolean isObjectInPath() {
         // TODO: Object detection
         return false;
+    }
+
+    public List<ScanResult> getScanResults() {
+        return mWifiManager.getScanResults();
     }
 
 }
