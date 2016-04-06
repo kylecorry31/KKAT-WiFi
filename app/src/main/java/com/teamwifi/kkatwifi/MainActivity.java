@@ -4,11 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -20,7 +18,6 @@ import android.widget.TextView;
 
 import com.teamwifi.kkatwifi.util.KKATWiFiHelper;
 
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         mTextView = (TextView) findViewById(R.id.test);
         mWifiHelper = new KKATWiFiHelper(this);

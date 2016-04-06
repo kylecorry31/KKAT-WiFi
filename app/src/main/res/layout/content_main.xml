@@ -13,14 +13,15 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
+        android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test"
-        android:id="@+id/test"/>
+        android:text="Test" />
+
     <EditText
+        android:id="@+id/distance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:id="@+id/distance"
-        android:hint="Distance (meters) to router"/>
+        android:hint="Distance (meters) to router" />
 </RelativeLayout>

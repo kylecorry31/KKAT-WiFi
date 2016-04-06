@@ -43,9 +43,9 @@ public class InfoActivity extends AppCompatActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 ssidText.setText(wiFiHelper.getSSID());
-                percentText.setText(String.valueOf(wiFiHelper.getSignalStrength())+"%");
-                powerText.setText(String.valueOf(wiFiHelper.getRSSI())+" dBm");
-                frequencyText.setText(String.valueOf(wiFiHelper.getFrequency())+" MHz");
+                percentText.setText(String.valueOf(wiFiHelper.getSignalStrength()) + "%");
+                powerText.setText(String.valueOf(wiFiHelper.getRSSI()) + " dBm");
+                frequencyText.setText(String.valueOf(wiFiHelper.getFrequency()) + " MHz");
             }
         };
     }
