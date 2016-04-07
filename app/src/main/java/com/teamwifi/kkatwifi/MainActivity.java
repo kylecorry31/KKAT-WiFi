@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextView;
     private KKATWiFiHelper mWifiHelper;
-    private EditText mDistanceEditText;
     private BroadcastReceiver mRSSIBroadcastReceiver;
 
     @Override
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         mTextView = (TextView) findViewById(R.id.test);
         mWifiHelper = new KKATWiFiHelper(this);
-        mDistanceEditText = (EditText) findViewById(R.id.distance);
         mRSSIBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -44,17 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Router channels", mWifiHelper.getNearbyRouterChannels().toString());
             }
         };
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        assert fab != null;
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mTextView.setText(String.valueOf(mWifiHelper.getEfficiency(-34, Double.valueOf(mDistanceEditText.getText().toString()))) +
-                        "\n" + String.valueOf(mWifiHelper.getSignalStrength()));
-            }
-        });
+        
     }
 
     @Override

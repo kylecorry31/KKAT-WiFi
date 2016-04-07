@@ -18,10 +18,4 @@
         android:layout_height="wrap_content"
         android:text="Test" />
 
-    <EditText
-        android:id="@+id/distance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:hint="Distance (meters) to router" />
 </RelativeLayout>
