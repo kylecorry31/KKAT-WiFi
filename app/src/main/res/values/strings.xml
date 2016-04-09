@@ -9,10 +9,10 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_tutorial">Tutorial</string>
 
-    <string name="deadzone_detection">Deadzone Detection</string>
+    <string name="deadzone_detection">Deadzone Indicator</string>
     <string name="obstruction_detection">Obstruction Detection</string>
     <string name="analysis">WiFi Analysis</string>
-    <string name="content_deadzone_detection">Detect WiFi deadzones in your house using the Info screen.</string>
+    <string name="content_deadzone_detection">Identify WiFi deadzones in your house using dynamic background color of the Info screen.</string>
     <string name="content_analysis">Analyze your home\'s WiFi and find the best place to put your router to get optimal signal strength.</string>
     <string name="content_obstruction_detection">Materials in your home can affect your WiFi signal. This app will try to identify what is affecting your signal.</string>
 
