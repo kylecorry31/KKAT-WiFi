@@ -16,6 +16,51 @@
         android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="Test" />
+
+    <ImageButton
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
+        android:layout_below="@id/test"
+        android:id="@+id/get_started"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/get_started_unpressed"/>
+
+    <ImageButton
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-100dp"
+        android:layout_below="@id/get_started"
+        android:id="@+id/info"
+        android:background="@android:color/transparent"
+        android:src="@drawable/info_unpressed"/>
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-50dp"
+        android:layout_below="@id/info"
+        android:id="@+id/learn"
+        android:background="@android:color/transparent"
+        android:src="@drawable/learn_unpressed"/>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
+        android:layout_below="@id/learn"
+        android:id="@+id/url"
+        android:background="@android:color/transparent"
+        android:src="@drawable/url_unpressed"/>
+
 
 </RelativeLayout>

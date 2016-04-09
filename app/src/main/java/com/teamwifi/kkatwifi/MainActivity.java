@@ -14,9 +14,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.teamwifi.kkatwifi.util.KKATWiFiHelper;
+import com.teamwifi.kkatwifi.util.Network;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextView;
     private KKATWiFiHelper mWifiHelper;
     private BroadcastReceiver mRSSIBroadcastReceiver;
+    private ImageButton getStarted, info, learn, url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +48,45 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Router channels", mWifiHelper.getNearbyRouterChannels().toString());
             }
         };
-        
+
+        getStarted = (ImageButton) findViewById(R.id.get_started);
+        learn = (ImageButton) findViewById(R.id.learn);
+        info = (ImageButton) findViewById(R.id.info);
+        url = (ImageButton) findViewById(R.id.url);
+
+        getStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getStarted.setImageDrawable(getResources().getDrawable(R.drawable.get_started_pressed));
+                startActivity(new Intent(getApplicationContext(), AnalysisActivity.class));
+            }
+        });
+
+        learn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                learn.setImageDrawable(getResources().getDrawable(R.drawable.learn_pressed));
+                startActivity(new Intent(getApplicationContext(), LearnActivity.class));
+            }
+        });
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                info.setImageDrawable(getResources().getDrawable(R.drawable.info_pressed));
+                startActivity(new Intent(getApplicationContext(), InfoActivity.class));
+            }
+        });
+
+        url.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                url.setImageDrawable(getResources().getDrawable(R.drawable.url_pressed));
+                Network.openWebpage(getApplicationContext(), "http://kylecorry31.github.io/KKAT-WiFi-Test");
+            }
+        });
+
+
     }
 
     @Override
