@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         info = (ImageButton) findViewById(R.id.info);
         url = (ImageButton) findViewById(R.id.url);
 
+
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         registerReceiver(mRSSIBroadcastReceiver, new IntentFilter(WifiManager.RSSI_CHANGED_ACTION));
+        getStarted.setImageDrawable(getResources().getDrawable(R.drawable.get_started_unpressed));
+        info.setImageDrawable(getResources().getDrawable(R.drawable.info_unpressed));
+        learn.setImageDrawable(getResources().getDrawable(R.drawable.learn_unpressed));
+        url.setImageDrawable(getResources().getDrawable(R.drawable.url_unpressed));
     }
 
     @Override
