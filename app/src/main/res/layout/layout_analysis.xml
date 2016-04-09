@@ -9,7 +9,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.teamwifi.kkatwifi.AnalysisActivity"
-    >
+    tools:context="com.teamwifi.kkatwifi.AnalysisActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:id="@+id/continue_button"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/continue_text" />
 
 </RelativeLayout>
