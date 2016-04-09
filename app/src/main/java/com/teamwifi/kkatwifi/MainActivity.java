@@ -6,22 +6,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.teamwifi.kkatwifi.util.KKATWiFiHelper;
 import com.teamwifi.kkatwifi.util.Network;
-
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.teamwifi.kkatwifi.util.Settings;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        setContentView(R.layout.layout_main);
+        
 
         mTextView = (TextView) findViewById(R.id.test);
         mWifiHelper = new KKATWiFiHelper(this);
@@ -123,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        } else if (id == R.id.action_tutorial) {
+            startActivity(new Intent(this, TutorialActivity.class));
             return true;
         }
 
