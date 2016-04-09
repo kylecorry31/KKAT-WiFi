@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mRSSIBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                mTextView.setText(mWifiHelper.getEfficiency(-34, 4) + "\nChannel: " + mWifiHelper.getChannel());
+                mTextView.setText("Path loss constant: " + String.valueOf(mWifiHelper.getEfficiency(-34, 4)));
                 Log.d("Router channels", mWifiHelper.getNearbyRouterChannels().toString());
             }
         };
