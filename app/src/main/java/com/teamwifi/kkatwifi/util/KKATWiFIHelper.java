@@ -86,7 +86,7 @@ public class KKATWiFiHelper {
      * @return The signal strength of the connection.
      */
     public int getSignalStrength() {
-        return WifiManager.calculateSignalLevel(getRSSI(), 100);
+        return WifiManager.calculateSignalLevel(getRSSI(), 101);
     }
 
     /**
