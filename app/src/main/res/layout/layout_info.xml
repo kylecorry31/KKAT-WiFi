@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/infoLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,55 +11,84 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.teamwifi.kkatwifi.InfoActivity"
-    tools:showIn="@layout/activity_info">
+    tools:context="com.teamwifi.kkatwifi.InfoActivity">
 
     <TextView
+        android:id="@+id/ssid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SSID"
-        android:id="@+id/ssid"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textSize="32sp" />
 
     <TextView
+        android:id="@+id/percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Percent"
-        android:id="@+id/percent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="48sp" />
 
     <TextView
+        android:id="@+id/power"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="More power"
-        android:id="@+id/power"
         android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="50"
-        android:text="Frequency"
-        android:id="@+id/frequency"
-        android:textSize="24sp" />
+
         <TextView
+            android:id="@+id/frequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="Frequency"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/channel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:text="Channel"
-            android:id="@+id/channel"
             android:textSize="24sp" />
     </LinearLayout>
 
-    <FrameLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/indicator"></FrameLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:text="The background is a deadzone indicator:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="33"
+            android:text="Green = Good" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="33"
+            android:text="Yellow = Medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="33"
+            android:text="Red = Bad" />
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.teamwifi.kkatwifi.util.KKATWiFiHelper;
 import com.teamwifi.kkatwifi.util.Network;
-import com.teamwifi.kkatwifi.util.Settings;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
-        
+
 
         mTextView = (TextView) findViewById(R.id.test);
         mWifiHelper = new KKATWiFiHelper(this);
