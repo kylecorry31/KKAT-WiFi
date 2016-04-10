@@ -8,51 +8,51 @@ import java.util.List;
  */
 public class AnalyzedLocations {
 
-    private List<ScannedLocation> scannedLocations = new ArrayList<>();
+    private static List<ScannedLocation> scannedLocations = new ArrayList<>();
 
-    public void add(ScannedLocation location) {
+    public static void add(ScannedLocation location) {
         scannedLocations.add(location);
     }
 
-    public void clear() {
+    public static void clear() {
         scannedLocations.clear();
     }
 
-    public ScannedLocation get(int location) {
+    public static ScannedLocation get(int location) {
         return scannedLocations.get(location);
     }
 
-    public ScannedLocation get(ScannedLocation.Location location) {
+    public static ScannedLocation get(ScannedLocation.Location location) {
         for (ScannedLocation scannedLocation : scannedLocations)
             if (scannedLocation.getLocation().equals(location))
                 return scannedLocation;
         return null;
     }
 
-    public ScannedLocation get(String name) {
+    public static ScannedLocation get(String name) {
         for (ScannedLocation scannedLocation : scannedLocations)
             if (scannedLocation.getName().equals(name))
                 return scannedLocation;
         return null;
     }
 
-    public int find(ScannedLocation location) {
+    public static int find(ScannedLocation location) {
         return scannedLocations.indexOf(location);
     }
 
-    public void remove(int location) {
+    public static void remove(int location) {
         scannedLocations.remove(location);
     }
 
-    public void remove(ScannedLocation location) {
+    public static void remove(ScannedLocation location) {
         scannedLocations.remove(location);
     }
 
-    public void remove(ScannedLocation.Location location) {
+    public static void remove(ScannedLocation.Location location) {
         scannedLocations.remove(get(location));
     }
 
-    public void remove(String name) {
+    public static void remove(String name) {
         scannedLocations.remove(get(name));
     }
 
