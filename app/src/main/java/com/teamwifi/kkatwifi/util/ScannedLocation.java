@@ -9,7 +9,7 @@ import java.util.List;
 public class ScannedLocation {
 
     public enum Location {
-        FRONT, LEFT, RIGHT, BACK, TOP, BOTTOM, OTHER;
+        ROUTER, FRONT, LEFT, RIGHT, BACK, OTHER
     }
 
     private String name;
