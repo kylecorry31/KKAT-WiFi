@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_centerVertical="true"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/ic_splash" />
 
     <TextView
         android:id="@+id/title"
@@ -20,7 +20,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="64dp"
         android:gravity="center_horizontal"
-        android:text="Team WiFI"
+        android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/white"
         android:textStyle="bold" />

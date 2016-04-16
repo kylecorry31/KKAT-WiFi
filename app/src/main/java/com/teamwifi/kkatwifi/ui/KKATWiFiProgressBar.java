@@ -1,6 +1,8 @@
 package com.teamwifi.kkatwifi.ui;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -13,6 +15,10 @@ import com.teamwifi.kkatwifi.R;
 public class KKATWiFiProgressBar extends ImageView {
     public KKATWiFiProgressBar(Context context) {
         super(context);
+    }
+
+    public KKATWiFiProgressBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr){
+        super(context, attrs, defStyleAttr);
     }
 
     public synchronized void setProgress(int progress) {

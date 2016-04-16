@@ -22,6 +22,10 @@ public class AnalyzedLocations {
         return scannedLocations.get(location);
     }
 
+    public static List<ScannedLocation> getAll(){
+        return scannedLocations;
+    }
+
     public static ScannedLocation get(ScannedLocation.Location location) {
         for (ScannedLocation scannedLocation : scannedLocations)
             if (scannedLocation.getLocation().equals(location))

@@ -13,6 +13,8 @@ import com.teamwifi.kkatwifi.lann.NeuralNetwork;
 import com.teamwifi.kkatwifi.lann.activation.Linear;
 import com.teamwifi.kkatwifi.lann.activation.Sigmoid;
 import com.teamwifi.kkatwifi.lann.activation.Softmax;
+import com.teamwifi.kkatwifi.util.AnalyzedLocations;
+import com.teamwifi.kkatwifi.util.ScannedLocation;
 
 import java.util.Arrays;
 
@@ -30,8 +32,22 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_result);
         ominnText = (TextView) findViewById(R.id.ominn);
-        createOMINN();
-        displayObstruction(0); // TODO: get values from Intent
+        ominnText.setText(String.valueOf(AnalyzedLocations.get(ScannedLocation.Location.ROUTER).getAverageReading()));
+//        createOMINN();
+//        displayObstruction(0); // TODO: get values from Intent
+        analyze();
+    }
+
+    private void analyze() {
+        double router = AnalyzedLocations.get(ScannedLocation.Location.ROUTER).getAverageReading();
+        String text = "";
+        for (ScannedLocation location : AnalyzedLocations.getAll()) {
+            if (location.getName().equals("ROUTER")) {
+                continue;
+            }
+            text += location.getName() + ": " + (location.getAverageReading() - router) + "\n";
+        }
+        ominnText.setText(text);
     }
 
     private void createOMINN() {

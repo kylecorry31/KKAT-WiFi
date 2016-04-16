@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:id="@+id/main_layout"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.teamwifi.kkatwifi.AnalysisActivity">
 
@@ -21,11 +22,41 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
         android:id="@+id/continue_button"
         android:backgroundTint="@color/colorAccent"
-        android:text="@string/continue_text" />
+        android:text="Next Reading"
+        android:layout_alignTop="@+id/done_button" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/location_edit"
+        android:hint="Enter the room name before pressing continue"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/done_button"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Done"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/location_edit"
+        android:layout_alignEnd="@+id/location_edit"
+        android:layout_marginBottom="54dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Room Name"
+        android:id="@+id/room_name_label"
+        android:layout_above="@+id/location_edit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="32sp"
+        android:visibility="invisible" />
 
 </RelativeLayout>
