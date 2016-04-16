@@ -105,9 +105,8 @@ public class KKATWiFiHelper {
      *
      * @return true if there is an object in the way.
      */
-    public boolean isObjectInPath() {
-        // TODO: Object detection
-        return false;
+    public boolean isObjectInPath(int diffRSSI) {
+        return Math.abs(diffRSSI) > 30;
     }
 
     public List<ScanResult> getScanResults() {
