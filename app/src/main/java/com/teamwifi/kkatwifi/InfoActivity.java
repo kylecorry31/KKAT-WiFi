@@ -1,27 +1,18 @@
 package com.teamwifi.kkatwifi;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Color;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.teamwifi.kkatwifi.util.KKATWiFiHelper;
 
-import org.w3c.dom.Text;
-
 public class InfoActivity extends AppCompatActivity {
 
-    TextView ssidText, percentText, powerText, frequencyText, channelText;
-    KKATWiFiHelper wiFiHelper;
-    //    private BroadcastReceiver mRSSIBroadcastReceiver;
+    private TextView ssidText, percentText, powerText, frequencyText, channelText;
+    private KKATWiFiHelper wiFiHelper;
     private LinearLayout indicator;
     private Handler handler;
     private Runnable runnable;

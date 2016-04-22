@@ -14,8 +14,6 @@ import com.teamwifi.kkatwifi.util.ScannedLocation;
 
 public class ScanLocationActivity extends AppCompatActivity {
 
-    private Button continueButton, doneButton;
-
     private EditText locationNameEdit;
 
     private KKATWiFiHelper kkatWiFiHelper;
@@ -28,9 +26,9 @@ public class ScanLocationActivity extends AppCompatActivity {
 
         kkatWiFiHelper = new KKATWiFiHelper(this);
 
-        continueButton = (Button) findViewById(R.id.continue_button);
+        Button continueButton = (Button) findViewById(R.id.continue_button);
 
-        doneButton = (Button) findViewById(R.id.noMoreButton);
+        Button doneButton = (Button) findViewById(R.id.noMoreButton);
 
         locationNameEdit = (EditText) findViewById(R.id.locationText);
 

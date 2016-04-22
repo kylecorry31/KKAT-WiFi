@@ -22,7 +22,7 @@ public class AnalyzedLocations {
         return scannedLocations.get(location);
     }
 
-    public static List<ScannedLocation> getAll(){
+    public static List<ScannedLocation> getAll() {
         return scannedLocations;
     }
 

@@ -19,7 +19,6 @@
     <string name="dot">• </string>
     <string name="skip">SKIP</string>
     <string name="done">DONE</string>
-    <string name="continue_text">CONTINUE</string>
 
     <string name="key_first_time">firstTime</string>
     <string name="key_marshmallow">marshmallow</string>

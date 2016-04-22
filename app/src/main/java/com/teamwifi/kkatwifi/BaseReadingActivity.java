@@ -12,8 +12,6 @@ import com.teamwifi.kkatwifi.util.ScannedLocation;
 
 public class BaseReadingActivity extends AppCompatActivity {
 
-    private Button continueButton;
-
     private KKATWiFiHelper kkatWiFiHelper;
 
 
@@ -26,7 +24,7 @@ public class BaseReadingActivity extends AppCompatActivity {
 
         AnalyzedLocations.clear();
 
-        continueButton = (Button) findViewById(R.id.continue_button);
+        Button continueButton = (Button) findViewById(R.id.continue_button);
 
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -52,7 +52,7 @@ public class ResultActivity extends AppCompatActivity {
         helperText.setText(text);
     }
 
-    public boolean areAllLocationsGood() {
+    private boolean areAllLocationsGood() {
         return badLocations.isEmpty();
     }
 

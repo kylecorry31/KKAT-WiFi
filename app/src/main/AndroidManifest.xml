@@ -30,11 +30,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".AnalysisActivity"
-            android:label="@string/title_activity_analysis"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".BaseReadingActivity"
             android:label="@string/title_activity_analysis"
             android:screenOrientation="portrait"
