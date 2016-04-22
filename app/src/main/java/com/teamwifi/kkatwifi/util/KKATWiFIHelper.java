@@ -89,6 +89,7 @@ public class KKATWiFiHelper {
         return WifiManager.calculateSignalLevel(getRSSI(), 101);
     }
 
+
     /**
      * Gets the efficiency of the current WiFi connection at a distance.
      *
@@ -105,8 +106,12 @@ public class KKATWiFiHelper {
      *
      * @return true if there is an object in the way.
      */
-    public boolean isObjectInPath(int diffRSSI) {
-        return Math.abs(diffRSSI) > 30;
+    public static boolean isObjectInPath(int rssi1, int rssi2) {
+        return Math.abs(rssi1 - rssi2) > 30;
+    }
+
+    public static boolean isSignalStrengthGood(int rssi){
+        return WifiManager.calculateSignalLevel(rssi, 101) > 70;
     }
 
     public List<ScanResult> getScanResults() {

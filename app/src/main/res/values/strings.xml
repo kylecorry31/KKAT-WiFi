@@ -26,6 +26,12 @@
     <string name="key_scan_local">scanLocal</string>
 
     <string name="pref_scan_local_title">Scan Local Networks</string>
+    <string name="base_reading">Base Reading</string>
+    <string name="base_reading_instructions">Stand about 5 feet from your router then press \'Continue\'</string>
+    <string name="scan_another_location">Scan Another Location</string>
+    <string name="scan_location_instructions">Enter the location name and click scan to continue, or hit no more locations to get results</string>
+    <string name="no_more_locations">No more locations</string>
+    <string name="scan">Scan</string>
 
 
 </resources>

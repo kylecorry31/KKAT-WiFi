@@ -30,11 +30,11 @@ public class ScannedLocation {
         readings.add(rssi);
     }
 
-    public double getAverageReading() {
+    public int getAverageReading() {
         double sum = 0;
         for (int value : readings)
             sum += value;
-        return sum / readings.size();
+        return (int) (sum / readings.size());
     }
 
     public String getName() {

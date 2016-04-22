@@ -1,71 +1,60 @@
 package com.teamwifi.kkatwifi;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
-import com.teamwifi.kkatwifi.lann.Matrix;
-import com.teamwifi.kkatwifi.lann.NeuralNetwork;
-import com.teamwifi.kkatwifi.lann.activation.Linear;
-import com.teamwifi.kkatwifi.lann.activation.Sigmoid;
-import com.teamwifi.kkatwifi.lann.activation.Softmax;
 import com.teamwifi.kkatwifi.util.AnalyzedLocations;
+import com.teamwifi.kkatwifi.util.KKATWiFiHelper;
 import com.teamwifi.kkatwifi.util.ScannedLocation;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class ResultActivity extends AppCompatActivity {
 
-    private NeuralNetwork net;
-    private TextView ominnText;
+    private TextView helperText;
+    private ArrayList<ScannedLocation> badLocations;
 
-    private enum Obstruction {
-        METAL, GLASS, WALL, UNKNOWN;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_result);
-        ominnText = (TextView) findViewById(R.id.ominn);
-        ominnText.setText(String.valueOf(AnalyzedLocations.get(ScannedLocation.Location.ROUTER).getAverageReading()));
-//        createOMINN();
-//        displayObstruction(0); // TODO: get values from Intent
-        analyze();
+        helperText = (TextView) findViewById(R.id.ominn);
+        badLocations = new ArrayList<>();
+        analyzeLocations();
     }
 
-    private void analyze() {
-        double router = AnalyzedLocations.get(ScannedLocation.Location.ROUTER).getAverageReading();
-        String text = "";
+    private void analyzeLocations() {
+        ScannedLocation router = AnalyzedLocations.get(ScannedLocation.Location.ROUTER);
+        if (router == null) {
+            return;
+        }
+        int routerRSSI = router.getAverageReading();
+        String text;
         for (ScannedLocation location : AnalyzedLocations.getAll()) {
-            if (location.getName().equals("ROUTER")) {
+            if (location.getName().equals(ScannedLocation.Location.ROUTER.toString()) || location.getName().isEmpty()) {
                 continue;
             }
-            text += location.getName() + ": " + (location.getAverageReading() - router) + "\n";
+            if (KKATWiFiHelper.isObjectInPath(location.getAverageReading(), routerRSSI) && !KKATWiFiHelper.isSignalStrengthGood(location.getAverageReading())) {
+                badLocations.add(location);
+            }
         }
-        ominnText.setText(text);
+        if (areAllLocationsGood()) {
+            text = "All scanned locations were good! Your router is in the best position.";
+        } else {
+            text = "Try moving the router closer to the following locations, or if the router is already close to them, check for any metal or glass between the router and the location.";
+            text += "\n";
+            for (ScannedLocation badLocation : badLocations) {
+                text += "\n" + badLocation.getName() + "\n";
+            }
+        }
+        helperText.setText(text);
     }
 
-    private void createOMINN() {
-        net = new NeuralNetwork.Builder()
-                .addLayer(1, 3, new Linear())
-                .addLayer(3, 4, new Sigmoid())
-                .addLayer(4, 4, new Softmax())
-                .build();
-        ominnText.setText("OMINN Created");
+    public boolean areAllLocationsGood() {
+        return badLocations.isEmpty();
     }
 
-    public void displayObstruction(double value) {
-        Matrix netOutput = net.predict(new Matrix(new double[][]{{value}}));
-        String obstructionText = "Obstruction Material Prediction\n(experimental)\n\n";
-        for (int row = 0; row < netOutput.getNumRows(); row++)
-            for (int col = 0; col < netOutput.getNumCols(); col++)
-                obstructionText += Obstruction.values()[row] + " " + Math.round(netOutput.get(row, col) * 100) + "%\n";
-        ominnText.setText(obstructionText);
-    }
 
 }

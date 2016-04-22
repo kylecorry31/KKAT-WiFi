@@ -1,18 +1,12 @@
 package com.teamwifi.kkatwifi;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.teamwifi.kkatwifi.util.KKATWiFiHelper;
 import com.teamwifi.kkatwifi.util.Network;
@@ -20,9 +14,6 @@ import com.teamwifi.kkatwifi.util.Network;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextView;
-    private KKATWiFiHelper mWifiHelper;
-    private BroadcastReceiver mRSSIBroadcastReceiver;
     private ImageButton getStarted, info, learn, url;
 
     @Override
@@ -30,16 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
 
-
-        mTextView = (TextView) findViewById(R.id.test);
-        mWifiHelper = new KKATWiFiHelper(this);
-        mRSSIBroadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                mTextView.setText("Path loss constant: " + String.valueOf(mWifiHelper.getEfficiency(-34, 4)));
-                Log.d("Router channels", mWifiHelper.getNearbyRouterChannels().toString());
-            }
-        };
 
         getStarted = (ImageButton) findViewById(R.id.get_started);
         learn = (ImageButton) findViewById(R.id.learn);
@@ -51,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getStarted.setImageDrawable(getResources().getDrawable(R.drawable.get_started_pressed));
-                startActivity(new Intent(getApplicationContext(), AnalysisActivity.class));
+                startActivity(new Intent(getApplicationContext(), BaseReadingActivity.class));
             }
         });
 
@@ -85,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        registerReceiver(mRSSIBroadcastReceiver, new IntentFilter(WifiManager.RSSI_CHANGED_ACTION));
         getStarted.setImageDrawable(getResources().getDrawable(R.drawable.get_started_unpressed));
         info.setImageDrawable(getResources().getDrawable(R.drawable.info_unpressed));
         learn.setImageDrawable(getResources().getDrawable(R.drawable.learn_unpressed));
@@ -94,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        unregisterReceiver(mRSSIBroadcastReceiver);
         super.onPause();
     }
 
