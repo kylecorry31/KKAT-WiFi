@@ -52,13 +52,6 @@ public class InfoActivity extends AppCompatActivity {
                 updateInfo();
             }
         };
-
-//        mRSSIBroadcastReceiver = new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//                updateInfo();
-//            }
-//        };
     }
 
     private void updateInfo() {
@@ -68,23 +61,25 @@ public class InfoActivity extends AppCompatActivity {
         powerText.setText(String.valueOf(wiFiHelper.getRSSI()) + " dBm");
         frequencyText.setText(String.valueOf(wiFiHelper.getFrequency()) + " MHz");
         channelText.setText("Channel " + String.valueOf(wiFiHelper.getChannel()));
+        setDeadzoneIndicatorColor(signalStrength);
+        handler.postDelayed(runnable, 100);
+    }
+
+    private void setDeadzoneIndicatorColor(int signalStrength) {
         if (signalStrength >= 75)
             indicator.setBackgroundColor(Color.rgb(245 - (signalStrength - 75) * 9, (int) (241 + (signalStrength - 75) * 0.16), 12));
         else
             indicator.setBackgroundColor(Color.rgb((int) (219 + (signalStrength * 0.35)), (int) (59 + signalStrength * 2.43), (int) (59 - (signalStrength * 0.63))));
-        handler.postDelayed(runnable, 100);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-//        registerReceiver(mRSSIBroadcastReceiver, new IntentFilter(WifiManager.RSSI_CHANGED_ACTION));
         handler.post(runnable);
     }
 
     @Override
     protected void onPause() {
-//        unregisterReceiver(mRSSIBroadcastReceiver);
         handler.removeCallbacks(runnable);
         super.onPause();
     }
