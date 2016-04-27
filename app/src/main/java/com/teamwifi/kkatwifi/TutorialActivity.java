@@ -18,7 +18,6 @@ import com.teamwifi.kkatwifi.R;
 import com.teamwifi.kkatwifi.tutorial.AnalysisTutorialContent;
 import com.teamwifi.kkatwifi.tutorial.DeadzoneTutorialContent;
 import com.teamwifi.kkatwifi.tutorial.MainTutorialContent;
-import com.teamwifi.kkatwifi.tutorial.OMINNTutorialContent;
 import com.teamwifi.kkatwifi.ui.DotsPageIndicator;
 import com.teamwifi.kkatwifi.util.Settings;
 
@@ -27,7 +26,7 @@ import com.teamwifi.kkatwifi.util.Settings;
  */
 public class TutorialActivity extends FragmentActivity {
 
-    private static final int NUM_PAGES = 4;
+    private static final int NUM_PAGES = 3;
 
     private ViewPager mPager;
 
@@ -126,8 +125,6 @@ public class TutorialActivity extends FragmentActivity {
                 case 1:
                     return new AnalysisTutorialContent();
                 case 2:
-                    return new OMINNTutorialContent();
-                case 3:
                     return new DeadzoneTutorialContent();
             }
             return null;
