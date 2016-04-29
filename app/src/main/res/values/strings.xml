@@ -31,6 +31,7 @@
     <string name="scan_location_instructions">Enter the location name and click scan to continue, or hit no more locations to get results</string>
     <string name="no_more_locations">No more locations</string>
     <string name="scan">Scan</string>
+    <string name="learn_content">Materials such as glass, metal, and concrete can block WiFi signals and decrease the signal strength. By moving your router, you can improve your ability to access the Internet.\n\nCommon objects that could block your signal include, but are not limited to:\n* Concrete walls\n* Fish tanks\n* Lead pipes\n* Metal shelves\n* Large electronics</string>
 
 
 </resources>

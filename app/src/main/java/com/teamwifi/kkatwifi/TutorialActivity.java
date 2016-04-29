@@ -81,12 +81,12 @@ public class TutorialActivity extends FragmentActivity {
 
             @Override
             public void onPageSelected(int position) {
-                if (position == 2) {
+                if (position == NUM_PAGES-2) {
 
                     skip.setVisibility(View.VISIBLE);
                     done.setVisibility(View.GONE);
                     next.setVisibility(View.VISIBLE);
-                } else if (position == 3) {
+                } else if (position == NUM_PAGES-1) {
 
                     skip.setVisibility(View.GONE);
                     done.setVisibility(View.VISIBLE);
