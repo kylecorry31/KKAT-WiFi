@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">KKAT WiFi Beta</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_tutorial">Tutorial</string>
+    <string name="title_activity_info">Info</string>
+    <string name="title_activity_learn">Learn</string>
+    <string name="title_activity_analysis">Analyze</string>
+    <string name="title_activity_result">Results</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_tutorial">Tutorial</string>
+
+    <string name="deadzone_detection">Deadzone Indicator</string>
+    <string name="obstruction_detection">Obstruction Detection</string>
+    <string name="analysis">WiFi Analysis</string>
+    <string name="content_deadzone_detection">Identify WiFi deadzones in your house.</string>
+    <string name="content_analysis">Find the best place to put your router to get optimal signal strength.</string>
+    <string name="error_weak_signal">Weak signal detected</string>
+    <string name="error_obstruction">Obstruction detected</string>
+    <string name="error_deadzone">Deadzone detected</string>
+
+
+    <string name="dot">• </string>
+    <string name="skip">SKIP</string>
+    <string name="done">DONE</string>
+
+    <string name="key_first_time">firstTime</string>
+    <string name="key_marshmallow">marshmallow</string>
+    <string name="key_scan_local">scanLocal</string>
+
+    <string name="pref_scan_local_title">Scan Local Networks</string>
+    <string name="base_reading">Base Reading</string>
+    <string name="base_reading_instructions">Stand about 5 feet from your router then press \'Continue\'</string>
+    <string name="scan_another_location">Scan Another Location</string>
+    <string name="scan_location_instructions">Enter the location name and click scan to continue, or hit no more locations to get results</string>
+    <string name="no_more_locations">No more locations</string>
+    <string name="scan">Scan</string>
+    <string name="learn_content">A bad signal can be caused by many different factors. Materials such as glass, metal, and concrete can block signals as they pass through a house.</string>
+    <string name="learn_content2">To improve a WiFi signal, the router may need to be moved to a more optimal location in a house. Ideally the router should be within sight of the most used locations and is off the floor in the open.</string>
+    <string name="action_learn">Learn</string>
+    <string name="more_stats">More stats</string>
+    <string name="less_stats">Less stats</string>
+    <string name="scan_content_desc">Scan</string>
+
+</resources>

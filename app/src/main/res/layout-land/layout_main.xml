@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linear"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="#63e71b">
+
+
+            <TextView
+                android:id="@+id/ssid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="No network"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/background_material_dark"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/strength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ssid"
+                android:layout_alignStart="@+id/ssid"
+                android:layout_below="@+id/ssid"
+                android:layout_marginTop="16dp"
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="112sp" />
+
+            <TextView
+                android:id="@+id/percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/strength"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/strength"
+                android:layout_toRightOf="@+id/strength"
+                android:text="%"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="56sp" />
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/strength"
+                android:layout_alignStart="@+id/strength"
+                android:layout_below="@+id/strength"
+                android:layout_marginTop="16dp"
+                android:text="Unknown strength"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/background_material_dark"
+                android:textSize="20sp" />
+
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/bottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/currentDetailsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:text="Current details"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#8a000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/freqDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignLeft="@+id/currentDetailsTitle"
+                android:layout_alignStart="@+id/currentDetailsTitle"
+                android:layout_below="@+id/currentDetailsTitle"
+                android:gravity="center_vertical"
+                android:text="Frequency"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/channelDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignLeft="@+id/freqDesc"
+                android:layout_alignStart="@+id/freqDesc"
+                android:layout_below="@+id/freqDesc"
+                android:gravity="center_vertical"
+                android:text="Channel"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/rssiDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignLeft="@+id/channelDesc"
+                android:layout_alignStart="@+id/channelDesc"
+                android:layout_below="@+id/channelDesc"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:text="RSSI"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/freq"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignTop="@+id/freqDesc"
+                android:layout_marginLeft="160dp"
+                android:gravity="center_vertical"
+                android:text="unknown"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/abc_primary_text_material_light"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/channel"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignTop="@+id/channelDesc"
+                android:layout_marginLeft="160dp"
+                android:gravity="center_vertical"
+                android:text="unknown"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/abc_primary_text_material_light"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/rssi"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignTop="@+id/rssiDesc"
+                android:layout_marginLeft="160dp"
+                android:gravity="center_vertical"
+                android:text="unknown"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/abc_primary_text_material_light"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/scanFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:contentDescription="@string/scan_content_desc"
+        android:src="@drawable/ic_router"
+        app:borderWidth="0dp"
+        app:layout_anchor="@id/linear"
+        app:layout_anchorGravity="bottom|right|end" />
+</android.support.design.widget.CoordinatorLayout>
