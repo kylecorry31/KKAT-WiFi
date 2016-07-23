@@ -14,30 +14,29 @@ import com.teamwifi.kkatwifibeta.tutorial.DeadzoneTutorialContent
 import com.teamwifi.kkatwifibeta.tutorial.MainTutorialContent
 import com.teamwifi.kkatwifibeta.ui.DotsPageIndicator
 import com.teamwifi.kkatwifibeta.util.Settings
+import kotlinx.android.synthetic.main.layout_tutorial2.*
 
 /**
  * Created by Kyle on 7/22/2016.
  */
 class TutorialActivity : FragmentActivity() {
     val pages = 3
-    private var pager: ViewPager? = null
+    private lateinit var pager: ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.layout_tutorial2)
         window.setBackgroundDrawable(null)
-        val progressDots = findViewById(R.id.progressDots) as DotsPageIndicator
-        val start = findViewById(R.id.getStarted) as Button
-        start.setOnClickListener({
+        getStarted.setOnClickListener({
             Settings.setFirst(applicationContext, false)
             startActivity(Intent(applicationContext, MainActivity::class.java))
             finish()
         })
         pager = findViewById(R.id.pager) as ViewPager
         val pagerAdapter = ContentPageAdapter(supportFragmentManager)
-        pager!!.adapter = pagerAdapter
-        progressDots.setViewPager(pager!!) // TODO: Reimplement
+        pager.adapter = pagerAdapter
+        progressDots.setViewPager(pager)
 
     }
 

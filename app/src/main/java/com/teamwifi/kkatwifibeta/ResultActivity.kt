@@ -5,6 +5,7 @@ import android.widget.TextView
 import com.teamwifi.kkatwifibeta.util.AnalyzedLocations
 import com.teamwifi.kkatwifibeta.util.ScannedLocation
 import com.teamwifi.kkatwifibeta.util.WiFiNetwork
+import kotlinx.android.synthetic.main.layout_result.*
 
 /**
  * Created by Kyle on 7/22/2016.
@@ -18,7 +19,6 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun analyzeLocations() {
-        val helperText = findViewById(R.id.ominn) as TextView
         val router: ScannedLocation? = AnalyzedLocations.getRouter()
         if (router != null) {
             val routerRSSI = router.averageReading
@@ -39,7 +39,7 @@ class ResultActivity : AppCompatActivity() {
                     text += "\n${badLocation.name}\n"
                 }
             }
-            helperText.text = text
+            ominn.text = text
         }
     }
 

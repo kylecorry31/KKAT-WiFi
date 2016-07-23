@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.teamwifi.kkatwifibeta.R
+import kotlinx.android.synthetic.main.layout_tutorial_content.*
 
 
 /**
@@ -20,13 +21,9 @@ class DeadzoneTutorialContent : Fragment() {
         val rootView = inflater!!.inflate(
                 R.layout.layout_tutorial_content, container, false) as ViewGroup
 
-        val title = rootView.findViewById(R.id.feature_name) as TextView
-        val content = rootView.findViewById(R.id.description) as TextView
-        val pic = rootView.findViewById(R.id.photo) as ImageView
-
-        title.text = getString(R.string.deadzone_detection)
-        content.text = getString(R.string.content_deadzone_detection)
-        pic.setImageResource(R.drawable.ic_error)
+        feature_name.text = getString(R.string.deadzone_detection)
+        description.text = getString(R.string.content_deadzone_detection)
+        photo.setImageResource(R.drawable.ic_error)
 
         return rootView
     }

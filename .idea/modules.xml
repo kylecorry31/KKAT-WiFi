@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KKATWiFiBeta.iml" filepath="$PROJECT_DIR$/KKATWiFiBeta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KKATWiFi.iml" filepath="$PROJECT_DIR$/KKATWiFi.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

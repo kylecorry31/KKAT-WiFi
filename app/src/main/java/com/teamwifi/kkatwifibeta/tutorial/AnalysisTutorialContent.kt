@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.teamwifi.kkatwifibeta.R
+import kotlinx.android.synthetic.main.layout_tutorial_content.*
 
 /**
  * Created by kyle on 9/6/15.
@@ -19,13 +20,9 @@ class AnalysisTutorialContent : Fragment() {
         val rootView = inflater!!.inflate(
                 R.layout.layout_tutorial_content, container, false) as ViewGroup
 
-        val title = rootView.findViewById(R.id.feature_name) as TextView
-        val content = rootView.findViewById(R.id.description) as TextView
-        val pic = rootView.findViewById(R.id.photo) as ImageView
-
-        title.text = getString(R.string.analysis)
-        content.text = getString(R.string.content_analysis)
-        pic.setImageResource(R.drawable.router_opt)
+        feature_name.text = getString(R.string.analysis)
+        description.text = getString(R.string.content_analysis)
+        photo.setImageResource(R.drawable.router_opt)
 
         return rootView
     }
