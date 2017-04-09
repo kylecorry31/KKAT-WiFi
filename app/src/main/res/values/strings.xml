@@ -41,4 +41,8 @@
     <string name="less_stats">Less stats</string>
     <string name="scan_content_desc">Scan</string>
 
+    <string name="shortcut_scan_short">Analyze</string>
+    <string name="shortcut_scan_long">Analyze router placement</string>
+    <string name="shortcut_scan_disabled">Router analysis disabled</string>
+
 </resources>
