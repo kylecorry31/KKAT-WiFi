@@ -36,7 +36,7 @@
     <string name="scan">Scan</string>
     <string name="learn_content">A bad signal can be caused by many different factors. Materials such as glass, metal, and concrete can block signals as they pass through a house.</string>
     <string name="learn_content2">To improve a WiFi signal, the router may need to be moved to a more optimal location in a house. Ideally the router should be within sight of the most used locations and is off the floor in the open.</string>
-    <string name="action_learn">Learn</string>
+    <string name="action_learn">Support</string>
     <string name="more_stats">More stats</string>
     <string name="less_stats">Less stats</string>
     <string name="scan_content_desc">Scan</string>
@@ -44,5 +44,7 @@
     <string name="shortcut_scan_short">Analyze</string>
     <string name="shortcut_scan_long">Analyze router placement</string>
     <string name="shortcut_scan_disabled">Router analysis disabled</string>
+    <string name="action_info">Info</string>
+    <string name="action_scan">Scan</string>
 
 </resources>
