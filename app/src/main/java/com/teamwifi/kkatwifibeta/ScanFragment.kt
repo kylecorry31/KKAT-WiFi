@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.teamwifi.kkatwifibeta.util.ScannedLocation
 import com.teamwifi.kkatwifibeta.util.WiFiNetwork
 import kotlinx.android.synthetic.main.scan_fragment.*
 import java.util.*
@@ -19,6 +17,8 @@ class ScanFragment: Fragment() {
 
     var list = mutableListOf<Int>()
     lateinit var currentNetwork: WiFiNetwork
+    var timer = Timer()
+    private var cancelled = false
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -31,6 +31,8 @@ class ScanFragment: Fragment() {
     override fun onResume() {
         super.onResume()
 
+        // Add
+
         reset.setOnClickListener {
             println(list)
             list.clear()
@@ -41,15 +43,16 @@ class ScanFragment: Fragment() {
             reset.visibility = View.GONE
         }
 
-        var timer = Timer()
         record.setOnTouchListener { v, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     reset.visibility = View.VISIBLE
+                    cancelled = false
                     timer = Timer()
                     timer.scheduleAtFixedRate(timerTask { scan() }, 0, 75)
                 }
                 MotionEvent.ACTION_UP -> {
+                    cancelled = true
                     timer.cancel()
                 }
             }
@@ -57,7 +60,16 @@ class ScanFragment: Fragment() {
         }
     }
 
+    override fun onPause() {
+        cancelled = true
+        timer.cancel()
+        super.onPause()
+    }
+
     private fun scan(){
+        if (cancelled){
+            return
+        }
         list.add(currentNetwork.rssi)
         scanProgress.progress = ((list.size / 100.0) * 100).toInt()
 
