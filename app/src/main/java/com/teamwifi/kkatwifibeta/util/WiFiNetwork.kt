@@ -14,6 +14,31 @@ class WiFiNetwork(context: Context) {
     companion object {
         fun isObjectInPath(rssi1: Int, rssi2: Int): Boolean = Math.abs(rssi1 - rssi2) > 30
         fun isSignalStrengthGood(rssi1: Int): Boolean = WifiManager.calculateSignalLevel(rssi1, 101) > 70
+        /**
+         * 7 point scale, 7 is great, 1 is very bad
+         */
+        fun calculateRSSIQuality(rssi1: Int): Int {
+            return when {
+                rssi1 >= -30 -> 7 // Max strength
+                rssi1 >= -50 -> 6 // Excellent
+                rssi1 >= -60 -> 5 // Good
+                rssi1 >= -67 -> 4 // Weak but reliable
+                rssi1 >= -70 -> 3 // Weak, not reliable
+                rssi1 >= -80 -> 2 // Bad
+                else -> 1 // Terrible
+            }
+        }
+
+        fun describeRSSIQuality(rssi1: Int): String {
+            val quality = calculateRSSIQuality(rssi1)
+            return when (quality) {
+                7, 6 -> "Excellent signal detected"
+                5, 4 -> "Good signal detected"
+                3 -> "Weak signal detected"
+                else -> "Very bad signal detected"
+            }
+        }
+
         fun calculateChannel(freq: Int): Int {
             if (freq == 2484)
                 return 14

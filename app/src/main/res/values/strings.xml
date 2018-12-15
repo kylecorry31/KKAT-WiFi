@@ -46,5 +46,6 @@
     <string name="shortcut_scan_disabled">Router analysis disabled</string>
     <string name="action_info">Info</string>
     <string name="action_scan">Scan</string>
+    <string name="record_directions">Walk around the room while holding the record button.</string>
 
 </resources>

@@ -1,13 +1,11 @@
 package com.teamwifi.kkatwifibeta
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import com.teamwifi.kkatwifibeta.util.Settings
 import kotlinx.android.synthetic.main.layout_main.*
-import android.support.v4.app.Fragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,25 +18,41 @@ class MainActivity : AppCompatActivity() {
         if (Settings.isFirst(applicationContext)) {
             startActivity(Intent(applicationContext, TutorialActivity::class.java))
         }
+        // TODO: Remember selected
 
-        switchFragment(InfoFragment())
+
+        syncFragmentWithSelection(bottom_navigation.selectedItemId)
 
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.action_info -> {
-                    switchFragment(InfoFragment())
-                }
-                R.id.action_scan -> {
-//                    switchFragment(null)
-                }
-                R.id.action_learn -> {
-                    switchFragment(LearnFragment())
-                }
-            }
+            syncFragmentWithSelection(item.itemId)
             true
         }
 
+    }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        bottom_navigation.selectedItemId = savedInstanceState?.getInt("page", R.id.action_info)!!
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putInt("page", bottom_navigation.selectedItemId)
+    }
+
+    private fun syncFragmentWithSelection(selection: Int){
+        when (selection) {
+            R.id.action_info -> {
+                switchFragment(InfoFragment())
+            }
+            R.id.action_scan -> {
+                    switchFragment(ScanFragment())
+            }
+            R.id.action_learn -> {
+                switchFragment(LearnFragment())
+            }
+        }
     }
 
     private fun switchFragment(fragment: Fragment){
@@ -47,28 +61,4 @@ class MainActivity : AppCompatActivity() {
                 .commit()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val i: Intent
-        if (item != null) {
-            when (item.itemId) {
-                R.id.action_learn -> {
-                    i = Intent(this, LearnActivity::class.java)
-                    startActivity(i)
-                    return true
-                }
-                R.id.action_tutorial -> {
-                    i = Intent(this, TutorialActivity::class.java)
-                    startActivity(i)
-                    return true
-                }
-            }
-        }
-        return false
-    }
 }

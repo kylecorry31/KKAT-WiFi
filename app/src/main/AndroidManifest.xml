@@ -28,15 +28,6 @@
         </activity>
 
         <activity
-            android:name=".LearnActivity"
-            android:label="@string/title_activity_learn"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
             android:name=".BaseReadingActivity"
             android:label="@string/title_activity_analysis"
             android:screenOrientation="portrait"

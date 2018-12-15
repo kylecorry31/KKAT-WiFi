@@ -2,52 +2,54 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/white">
+    >
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="What causes a bad signal?"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="Support"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <TextView
         android:id="@+id/question1"
-        android:textColor="@color/abc_primary_text_material_light"
-        android:textSize="24sp" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="What causes a bad signal?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
         android:id="@+id/textView"
-        android:text="@string/learn_content"
-        android:textSize="16sp"
-        android:textColor="@color/abc_secondary_text_material_light"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-        android:layout_marginTop="16dp" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="How can a bad signal be fixed?"
-        android:id="@+id/textView3"
-        android:textColor="@color/abc_primary_text_material_light"
-        android:textSize="24sp"
-        android:layout_marginTop="24dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:text="@string/learn_content2"
-        android:textSize="16sp"
-        android:textColor="@color/abc_secondary_text_material_light"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
         android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/learn_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="How can a bad signal be fixed?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:text="@string/learn_content2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
 
 </LinearLayout>

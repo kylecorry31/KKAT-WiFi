@@ -2,22 +2,16 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="match_parent"
+    <ScrollView
         android:id="@+id/fragment_holder"
-        android:layout_height="match_parent" />
-
-
-    <!--<fragment android:name="com.teamwifi.kkatwifibeta.InfoFragment"-->
-        <!--android:id="@+id/infoFragment"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" />-->
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp" />
 
 
     <android.support.design.widget.BottomNavigationView

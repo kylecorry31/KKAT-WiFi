@@ -46,12 +46,7 @@ class InfoFragment: Fragment() {
                 rssi2.text = currentNetwork.rssi.toString()
                 freq2.text = (currentNetwork.frequency / 100 / 10.0).toString()
                 channel2.text = currentNetwork.channel.toString()
-                if (signalStrength <= 20)
-                    desc.text = "Deadzone detected"
-                else if (signalStrength <= 50)
-                    desc.text = "Weak signal detected"
-                else
-                    desc.text = "Signal is strong"
+                desc.text =  WiFiNetwork.describeRSSIQuality(currentNetwork.rssi)
                 val color: Int
                 if (signalStrength >= 75)
                     color = Color.rgb(245 - (signalStrength - 75) * 9, (241 + (signalStrength - 75) * 0.16).toInt(), 12)
