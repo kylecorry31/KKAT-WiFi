@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="48dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="No network"
@@ -72,8 +72,11 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:divider="@drawable/divider"
+            android:dividerPadding="16dp"
             android:gravity="center"
             android:orientation="horizontal"
+            android:showDividers="middle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/desc">
@@ -81,7 +84,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="8dp"
+                android:layout_marginRight="4dp"
                 android:orientation="vertical"
                 android:padding="8dp">
 
@@ -104,7 +107,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
                 android:orientation="vertical"
                 android:padding="8dp">
 
@@ -128,6 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginLeft="4dp"
                 android:padding="8dp">
 
                 <TextView
@@ -146,6 +151,21 @@
                     android:text="GHz" />
             </LinearLayout>
         </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/bar"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </FrameLayout>
 
 
     </android.support.constraint.ConstraintLayout>

@@ -60,12 +60,11 @@ class MainActivity : Activity() {
                 else
                     desc.text = "Signal is strong"
                 val color: Int
-//                if (signalStrength >= 75)
-//                    color = Color.rgb(245 - (signalStrength - 75) * 9, (241 + (signalStrength - 75) * 0.16).toInt(), 12)
-//                else
-//                    color = Color.rgb((219 + signalStrength * 0.35).toInt(), (59 + signalStrength * 2.43).toInt(), (59 - signalStrength * 0.63).toInt())
-                color = Color.WHITE;
-                main.setBackgroundColor(color)
+                if (signalStrength >= 75)
+                    color = Color.rgb(245 - (signalStrength - 75) * 9, (241 + (signalStrength - 75) * 0.16).toInt(), 12)
+                else
+                    color = Color.rgb((219 + signalStrength * 0.35).toInt(), (59 + signalStrength * 2.43).toInt(), (59 - signalStrength * 0.63).toInt())
+                bar.setBackgroundColor(color)
             }
         }
 
