@@ -1,20 +1,13 @@
 package com.teamwifi.kkatwifibeta
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Color
-import android.net.ConnectivityManager
-import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.os.Handler
-import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.teamwifi.kkatwifibeta.util.WiFiNetwork
+import com.teamwifi.kkatwifibeta.entities.WiFiNetwork
 import kotlinx.android.synthetic.main.info_fragment.*
 import java.util.*
 import kotlin.concurrent.timerTask

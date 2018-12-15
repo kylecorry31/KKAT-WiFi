@@ -1,10 +1,13 @@
 package com.teamwifi.kkatwifibeta
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import com.teamwifi.kkatwifibeta.util.Settings
 import kotlinx.android.synthetic.main.layout_main.*
 
 
@@ -15,10 +18,12 @@ class MainActivity : AppCompatActivity() {
         // TODO: Request location permission
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_main)
-        if (Settings.isFirst(applicationContext)) {
-            startActivity(Intent(applicationContext, TutorialActivity::class.java))
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), 1)
         }
-        // TODO: Remember selected
 
 
         syncFragmentWithSelection(bottom_navigation.selectedItemId)

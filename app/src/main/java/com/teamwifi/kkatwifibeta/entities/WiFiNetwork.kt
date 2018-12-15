@@ -1,4 +1,4 @@
-package com.teamwifi.kkatwifibeta.util
+package com.teamwifi.kkatwifibeta.entities
 
 import android.content.Context
 import android.net.ConnectivityManager

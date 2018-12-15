@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import com.teamwifi.kkatwifibeta.util.WiFiNetwork
+import com.teamwifi.kkatwifibeta.entities.WiFiNetwork
 import kotlinx.android.synthetic.main.scan_fragment.*
 import java.util.*
 import kotlin.concurrent.timerTask

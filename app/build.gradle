@@ -10,7 +10,7 @@ android {
         applicationId "com.teamwifi.kkatwifibeta"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 3
+        versionCode 4
         versionName "2.0.0"
         vectorDrawables.useSupportLibrary = true
     }
