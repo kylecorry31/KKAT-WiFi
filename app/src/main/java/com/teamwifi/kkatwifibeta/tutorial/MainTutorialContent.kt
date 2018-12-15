@@ -14,8 +14,7 @@ import com.teamwifi.kkatwifibeta.R
  */
 class MainTutorialContent : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater!!.inflate(
                 R.layout.layout_tutorial_content, container, false) as ViewGroup
 

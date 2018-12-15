@@ -8,7 +8,7 @@ import android.os.Build
 
 
 class WiFiNetwork(context: Context) {
-    private val mWiFiManager = context.getSystemService(Context.WIFI_SERVICE) as WifiManager
+    private val mWiFiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
     private val mConnectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     companion object {
@@ -30,7 +30,7 @@ class WiFiNetwork(context: Context) {
         }
 
     val channel: Int
-        get() = Companion.calculateChannel(frequency)
+        get() = calculateChannel(frequency)
 
     val rssi: Int
         get() = mWiFiManager.connectionInfo.rssi
@@ -60,7 +60,7 @@ class WiFiNetwork(context: Context) {
         get() {
             val nearbyChannels: MutableList<Int> = mutableListOf()
             for (scanResult in scanResults)
-                nearbyChannels.add(Companion.calculateChannel(scanResult.frequency))
+                nearbyChannels.add(calculateChannel(scanResult.frequency))
             return nearbyChannels
         }
 }

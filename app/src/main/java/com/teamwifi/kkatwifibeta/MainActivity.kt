@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.layout_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var currentNetwork: WiFiNetwork
-    lateinit var connectivityChangedReceiver: BroadcastReceiver
+    private lateinit var connectivityChangedReceiver: BroadcastReceiver
     lateinit var noConnectionBar: Snackbar
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
         }
         currentNetwork = WiFiNetwork(this)
         noConnectionBar = Snackbar.make(coordinator, "Not connected to a WiFi network", Snackbar.LENGTH_INDEFINITE)
-        scanFab.setOnClickListener({
+        scanFab.setOnClickListener {
             startActivity(Intent(applicationContext, BaseReadingActivity::class.java))
-        })
+        }
 
         connectivityChangedReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {

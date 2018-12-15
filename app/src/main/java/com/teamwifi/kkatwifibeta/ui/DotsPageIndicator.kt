@@ -39,7 +39,7 @@ class DotsPageIndicator(context: Context, attrs: AttributeSet) : LinearLayout(co
 
     fun setViewPager(pager: ViewPager) {
         pager.addOnPageChangeListener(this)
-        this.pages = pager.adapter.count
+        this.pages = pager.adapter!!.count
         createDots()
     }
 
