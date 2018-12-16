@@ -22,10 +22,7 @@ class InfoFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View =  inflater.inflate(R.layout.info_fragment, container, false)
-
-
         currentNetwork = WiFiNetwork(context!!)
-
         return view
     }
 

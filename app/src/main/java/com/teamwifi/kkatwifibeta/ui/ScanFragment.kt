@@ -40,7 +40,7 @@ class ScanFragment: Fragment() {
             analysisHeader.visibility = View.INVISIBLE
             analysisResults.text = ""
             scanProgress.progress = 0
-            scanProgressText.text = "Nothing recorded yet"
+            scanProgressText.text = getString(R.string.scan_record_empty_state)
             reset.visibility = View.GONE
         }
 
@@ -76,19 +76,19 @@ class ScanFragment: Fragment() {
 
         if (scanProgress.progress <= 50){
             Handler(context!!.mainLooper).post {
-                scanProgressText.text = "Recording..."
+                scanProgressText.text = getString(R.string.scan_progress_1)
             }
         } else if (scanProgress.progress <= 75){
             Handler(context!!.mainLooper).post {
-                scanProgressText.text = "Keep it up!"
+                scanProgressText.text = getString(R.string.scan_progress_2)
             }
         } else if (scanProgress.progress < 100){
             Handler(context!!.mainLooper).post {
-                scanProgressText.text = "Almost done!"
+                scanProgressText.text = getString(R.string.scan_progress_3)
             }
         } else {
             Handler(context!!.mainLooper).post {
-                scanProgressText.text = "Done! You can record more if you want."
+                scanProgressText.text = getString(R.string.scan_progress_4)
 
                 val rssi = list.average().roundToInt()
                 val quality = WiFiNetwork.calculateRSSIQuality(rssi)
@@ -96,7 +96,7 @@ class ScanFragment: Fragment() {
                 var alerts = WiFiNetwork.describeRSSIQuality(rssi) + ".\n"
 
                 if (quality <= 2){
-                    alerts += resources.getString(R.string.recommendation_move_router_closer) + ".\n"
+                    alerts += getString(R.string.recommendation_move_router_closer) + ".\n"
                 }
 
                 analysisHeader.visibility = View.VISIBLE

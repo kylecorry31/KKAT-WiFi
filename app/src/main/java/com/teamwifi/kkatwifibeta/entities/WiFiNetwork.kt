@@ -24,6 +24,15 @@ class WiFiNetwork(context: Context) {
             }
         }
 
+        /*
+        GNOME does:
+        >= 80 -> Excellent
+        >= 50 -> Good
+        >= 40 -> OK
+        >= 20 -> Weak
+        >= 0 -> None
+         */
+
         fun describeRSSIQuality(rssi1: Int): String {
             val quality = calculateRSSIQuality(rssi1)
             return when (quality) {
@@ -59,8 +68,8 @@ class WiFiNetwork(context: Context) {
             return when (quality) {
                 7, 6 -> SignalQuality.EXCELLENT
                 5, 4 -> SignalQuality.GOOD
-                3 -> SignalQuality.WEAK
-                else -> SignalQuality.BAD
+                3 -> SignalQuality.OK
+                else -> SignalQuality.WEAK
             }
         }
 

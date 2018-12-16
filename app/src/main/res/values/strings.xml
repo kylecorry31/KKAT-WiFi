@@ -39,12 +39,16 @@
     <!--Analysis descriptions-->
     <string name="signal_quality_excellent">Excellent signal detected</string>
     <string name="signal_quality_good">Good signal detected</string>
+    <string name="signal_quality_ok">OK signal detected</string>
     <string name="signal_quality_weak">Weak signal detected</string>
-    <string name="signal_quality_bad">Very bad signal detected</string>
     <string name="obstruction">Obstruction detected</string>
 
     <!--Recommendations-->
     <string name="recommendation_move_router_closer">You should move your router closer to this room</string>
     <string name="recommendation_avoid_obstructions">Ensure there are no metal objects surrounding your router</string>
+    <string name="scan_progress_1">Recording...</string>
+    <string name="scan_progress_2">Keep it up!</string>
+    <string name="scan_progress_3">Almost done!</string>
+    <string name="scan_progress_4">Done! You can record more if you want.</string>
 
 </resources>
