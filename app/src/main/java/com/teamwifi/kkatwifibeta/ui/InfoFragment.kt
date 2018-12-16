@@ -69,6 +69,7 @@ class InfoFragment: Fragment() {
         freq.text = (currentNetwork.frequency / 100 / 10.0).toString()
         channel.text = currentNetwork.channel.toString()
         desc.text =  WiFiNetwork.describeRSSIQuality(currentNetwork.rssi)
+        link.text = currentNetwork.linkSpeed.toString()
         val color: Int
         color = if (signalStrength >= 75)
             Color.rgb(245 - (signalStrength - 75) * 9, (241 + (signalStrength - 75) * 0.16).toInt(), 12)

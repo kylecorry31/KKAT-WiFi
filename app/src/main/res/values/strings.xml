@@ -44,5 +44,7 @@
     <!--Recommendations-->
     <string name="recommendation_move_router_closer">You should move your router closer to this room</string>
     <string name="recommendation_avoid_obstructions">Ensure there are no metal objects surrounding your router</string>
+    <string name="info_link_units">Mbps</string>
+    <string name="info_link_empty_state">0</string>
 
 </resources>
