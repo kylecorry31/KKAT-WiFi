@@ -16,7 +16,6 @@ import kotlin.concurrent.timerTask
 class InfoFragment: Fragment() {
 
     private lateinit var currentNetwork: WiFiNetwork
-//    lateinit var noConnectionBar: Snackbar
     private var timer = Timer()
     private val delay: Long = 500
     private var cancelled = false
@@ -26,15 +25,12 @@ class InfoFragment: Fragment() {
 
 
         currentNetwork = WiFiNetwork(context!!)
-//        noConnectionBar = Snackbar.make(coordinator, "Not connected to a WiFi network", Snackbar.LENGTH_INDEFINITE)
 
         return view
     }
 
     override fun onResume() {
         super.onResume()
-//        if (!currentNetwork.isConnected && !noConnectionBar.isShown)
-//            noConnectionBar.show()
         timer = Timer()
         timer.scheduleAtFixedRate(timerTask {
             Handler(context!!.mainLooper).post { updateUI() }
@@ -54,20 +50,28 @@ class InfoFragment: Fragment() {
             return
         }
         if (!currentNetwork.isConnected) {
-//                    if (!noConnectionBar.isShown) {
-//                        noConnectionBar.show()
-//                    }
+            // show empty state
+            ssid.text = getString(R.string.info_ssid_empty_state)
+            strength.text = getString(R.string.info_percent_empty_state)
+            rssi.text = getString(R.string.info_rssi_empty_state)
+            channel.text = getString(R.string.info_channel_empty_state)
+            link.text = getString(R.string.info_link_empty_state)
+            desc.text = getString(R.string.info_strength_empty_state)
+            freq.text = getString(R.string.info_freq_empty_state)
+            bar.setBackgroundColor(Color.WHITE)
             return
         }
-//                else if (noConnectionBar.isShown) {
-//                    noConnectionBar.dismiss()
-//                }
         ssid.text = currentNetwork.ssid
         val signalStrength = currentNetwork.signalStrength
         strength.text = signalStrength.toString()
         rssi.text = currentNetwork.rssi.toString()
-        freq.text = (currentNetwork.frequency / 100 / 10.0).toString()
-        channel.text = currentNetwork.channel.toString()
+        if (currentNetwork.frequency != -1) {
+            freq.text = (currentNetwork.frequency / 100 / 10.0).toString()
+            channel.text = currentNetwork.channel.toString()
+        } else {
+            freq.text = getString(R.string.info_freq_empty_state)
+            channel.text = getString(R.string.info_channel_empty_state)
+        }
         desc.text =  WiFiNetwork.describeRSSIQuality(currentNetwork.rssi)
         link.text = currentNetwork.linkSpeed.toString()
         val color: Int

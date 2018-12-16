@@ -1,17 +1,14 @@
 package com.teamwifi.kkatwifibeta.entities
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.wifi.ScanResult
 import android.net.wifi.WifiManager
 import android.os.Build
 
 
 class WiFiNetwork(context: Context) {
     private val mWiFiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-    private val mConnectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-    companion object { // TODO: move these to another helper file
+    companion object { // TODO: don't use these
         /**
          * 7 point scale, 7 is great, 1 is very bad
          */
@@ -40,14 +37,12 @@ class WiFiNetwork(context: Context) {
     }
 
     val isConnected: Boolean
-        get() {
-            val activeNetworkInfo = mConnectivityManager.activeNetworkInfo
-            return activeNetworkInfo != null && activeNetworkInfo.type == ConnectivityManager.TYPE_WIFI && activeNetworkInfo.isConnectedOrConnecting
-        }
+        get() = mWiFiManager.connectionInfo.networkId != -1
 
     val channel: Int
         get() {
             val freq = frequency
+            if (freq == -1) return -1
             if (freq == 2484)
                 return 14
             if (freq < 2484)
@@ -74,7 +69,7 @@ class WiFiNetwork(context: Context) {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 mWiFiManager.connectionInfo.frequency
             } else {
-                2407
+                -1
             }
         }
 
