@@ -1,4 +1,4 @@
-package com.teamwifi.kkatwifibeta
+package com.teamwifi.kkatwifibeta.ui
 
 import android.graphics.Color
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.teamwifi.kkatwifibeta.R
 import com.teamwifi.kkatwifibeta.entities.WiFiNetwork
 import kotlinx.android.synthetic.main.info_fragment.*
 import java.util.*
@@ -14,7 +15,7 @@ import kotlin.concurrent.timerTask
 
 class InfoFragment: Fragment() {
 
-    lateinit var currentNetwork: WiFiNetwork
+    private lateinit var currentNetwork: WiFiNetwork
 //    lateinit var noConnectionBar: Snackbar
     private var timer = Timer()
     private val delay: Long = 500
@@ -64,9 +65,9 @@ class InfoFragment: Fragment() {
         ssid.text = currentNetwork.ssid
         val signalStrength = currentNetwork.signalStrength
         strength.text = signalStrength.toString()
-        rssi2.text = currentNetwork.rssi.toString()
-        freq2.text = (currentNetwork.frequency / 100 / 10.0).toString()
-        channel2.text = currentNetwork.channel.toString()
+        rssi.text = currentNetwork.rssi.toString()
+        freq.text = (currentNetwork.frequency / 100 / 10.0).toString()
+        channel.text = currentNetwork.channel.toString()
         desc.text =  WiFiNetwork.describeRSSIQuality(currentNetwork.rssi)
         val color: Int
         color = if (signalStrength >= 75)

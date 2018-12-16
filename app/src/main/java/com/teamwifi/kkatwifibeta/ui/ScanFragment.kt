@@ -1,4 +1,4 @@
-package com.teamwifi.kkatwifibeta
+package com.teamwifi.kkatwifibeta.ui
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import com.teamwifi.kkatwifibeta.R
 import com.teamwifi.kkatwifibeta.entities.WiFiNetwork
 import kotlinx.android.synthetic.main.scan_fragment.*
 import java.util.*
@@ -15,9 +16,9 @@ import kotlin.math.roundToInt
 
 class ScanFragment: Fragment() {
 
-    var list = mutableListOf<Int>()
-    lateinit var currentNetwork: WiFiNetwork
-    var timer = Timer()
+    private var list = mutableListOf<Int>()
+    private lateinit var currentNetwork: WiFiNetwork
+    private var timer = Timer()
     private var cancelled = false
 
 
@@ -95,7 +96,7 @@ class ScanFragment: Fragment() {
                 var alerts = WiFiNetwork.describeRSSIQuality(rssi) + ".\n"
 
                 if (quality <= 2){
-                    alerts += "You should move your router closer to this room.\n"
+                    alerts += resources.getString(R.string.recommendation_move_router_closer) + ".\n"
                 }
 
                 analysisHeader.visibility = View.VISIBLE
