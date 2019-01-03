@@ -8,6 +8,8 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.teamwifi.kkatwifibeta.R
+import com.teamwifi.kkatwifibeta.entities.SignalQuality
+import com.teamwifi.kkatwifibeta.entities.WiFiAnalyzer
 import com.teamwifi.kkatwifibeta.entities.WiFiNetwork
 import kotlinx.android.synthetic.main.scan_fragment.*
 import java.util.*
@@ -91,11 +93,11 @@ class ScanFragment: Fragment() {
                 scanProgressText.text = getString(R.string.scan_progress_4)
 
                 val rssi = list.average().roundToInt()
-                val quality = WiFiNetwork.calculateRSSIQuality(rssi)
+                val quality = WiFiAnalyzer.rateQuality(rssi)
 
-                var alerts = WiFiNetwork.describeRSSIQuality(rssi) + ".\n"
+                var alerts =  WiFiAnalyzer.describeQuality(quality) + ".\n"
 
-                if (quality <= 2){
+                if (quality == SignalQuality.WEAK){
                     alerts += getString(R.string.recommendation_move_router_closer) + ".\n"
                 }
 

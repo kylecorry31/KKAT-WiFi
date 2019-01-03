@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.teamwifi.kkatwifibeta.R
+import com.teamwifi.kkatwifibeta.entities.WiFiAnalyzer
 import com.teamwifi.kkatwifibeta.entities.WiFiNetwork
 import kotlinx.android.synthetic.main.info_fragment.*
 import java.util.*
@@ -69,7 +70,7 @@ class InfoFragment: Fragment() {
             freq.text = getString(R.string.info_freq_empty_state)
             channel.text = getString(R.string.info_channel_empty_state)
         }
-        desc.text =  WiFiNetwork.describeRSSIQuality(currentNetwork.rssi)
+        desc.text =  WiFiAnalyzer.describeQuality(WiFiAnalyzer.rateQuality(currentNetwork.rssi))
         link.text = currentNetwork.linkSpeed.toString()
         val color: Int
         color = if (signalStrength >= 75)
